@@ -182,7 +182,7 @@ done
 echo_info "Adding release id to environment variables"
 envman add --key RELEASEID --value $RELEASE_ID
 
-if [[ -z "${RELEASEID}" ]]; then
+if [[ -z "$RELEASEID" ]]; then
 	echo_fail "Environment variable RELEASEID was not set!"
 else
   echo_details "Release ID ${RELEASEID} added to environment variables"
