@@ -182,10 +182,12 @@ done
 echo_info "Adding release id to environment variables"
 envman add --key RELEASEID --value $RELEASE_ID
 
-if [[ -z "$RELEASEID" ]]; then
+releaseId=$(envman run bash -c 'echo "Environment test: $RELEASEID"')
+
+if [[ -z "$releaseId" ]]; then
 	echo_fail "Environment variable RELEASEID was not set!"
 else
-  echo_details "Release ID ${RELEASEID} added to environment variables"
+  echo_details "Release ID ${releaseId} added to environment variables"
 fi
 
 echo_done "Completed AppCenter app upload at $(date -u +%Y-%m-%dT%H:%M:%SZ)"
